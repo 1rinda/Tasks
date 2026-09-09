@@ -1,0 +1,13 @@
+services:
+  todoapi:
+    build: .
+    ports:
+      - "5000:8080"
+    volumes:
+      - todo-data:/app/data
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__TodoDatabase=Data Source=/app/data/todo.db
+
+volumes:
+  todo-data:
